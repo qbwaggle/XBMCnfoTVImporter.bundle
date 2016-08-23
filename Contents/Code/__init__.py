@@ -689,7 +689,10 @@ class xbmcnfotv(Agent.TV_Shows):
 										# Ep. Title
 										if Prefs['multEpisodePlexPatch'] and (multEpTitlePlexPatch != ""):
 											self.DLog('using multi title: ' + multEpTitlePlexPatch)
-											episode.title = multEpTitlePlexPatch
+											# episode.title = multEpTitlePlexPatch
+											dateadded = nfoXML.xpath("dateadded")[0].text
+											dateadded = dateadded[:10]
+											episode.title = dateadded
 										else:
 											try: 
 												dateadded = nfoXML.xpath("dateadded")[0].text
