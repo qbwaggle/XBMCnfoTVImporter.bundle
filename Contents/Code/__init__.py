@@ -698,7 +698,7 @@ class xbmcnfotv(Agent.TV_Shows):
 												dateadded = nfoXML.xpath("dateadded")[0].text
 												dateadded = dateadded[:10]
 												# title = nfoXML.xpath("title")[0].text
-												title = dateadded
+												episode.title = dateadded
 											except:
 												self.DLog("ERROR: No <title> tag in " + nfoFile + ". Aborting!")
 												return
