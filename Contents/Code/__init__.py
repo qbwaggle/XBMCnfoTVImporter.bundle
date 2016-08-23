@@ -691,7 +691,11 @@ class xbmcnfotv(Agent.TV_Shows):
 											self.DLog('using multi title: ' + multEpTitlePlexPatch)
 											episode.title = multEpTitlePlexPatch
 										else:
-											try: episode.title = nfoXML.xpath('title')[0].text
+											try: 
+												dateadded = nfoXML.xpath("dateadded")[0].text
+												dateadded = dateadded[:10]
+												# title = nfoXML.xpath("title")[0].text
+												title = dateadded
 											except:
 												self.DLog("ERROR: No <title> tag in " + nfoFile + ". Aborting!")
 												return
@@ -742,7 +746,9 @@ class xbmcnfotv(Agent.TV_Shows):
 											self.DLog('using multi summary: ' + multEpSummaryPlexPatch)
 											episode.summary = multEpSummaryPlexPatch
 										else:
-											try: episode.summary = nfoXML.xpath('plot')[0].text
+											try:
+												# episode.summary = nfoXML.xpath('plot')[0].text
+												episode.summary = nfoXML.xpath("title")[0].text
 											except:
 												episode.summary = ""
 												pass
