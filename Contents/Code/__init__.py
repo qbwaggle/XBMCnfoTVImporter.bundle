@@ -147,7 +147,11 @@ class xbmcnfotv(Agent.TV_Shows):
 				Log(nfoXML.xpath("title"))
 
 				# Title
-				try: title = nfoXML.xpath("title")[0].text
+				try: 
+					dateadded = nfoXML.xpath("dateadded")[0].text
+					dateadded = dateadded[:10]
+					# title = nfoXML.xpath("title")[0].text
+					title = dateadded
 				except:
 					self.DLog("ERROR: No <title> tag in " + nfoFile + ". Aborting!")
 					return
@@ -316,7 +320,11 @@ class xbmcnfotv(Agent.TV_Shows):
 				nfoXML = self.RemoveEmptyTags(nfoXML)
 
 				# Title
-				try: metadata.title = nfoXML.xpath("title")[0].text
+				try: 
+					dateadded = nfoXML.xpath("dateadded")[0].text
+					dateadded = dateadded[:10]
+					# title = nfoXML.xpath("title")[0].text
+					title = dateadded
 				except:
 					self.DLog("ERROR: No <title> tag in " + nfoFile + ". Aborting!")
 					return
@@ -385,7 +393,9 @@ class xbmcnfotv(Agent.TV_Shows):
 				try: metadata.tagline = nfoXML.findall("tagline")[0].text
 				except: pass
 				# Summary (Plot)
-				try: metadata.summary = nfoXML.xpath("plot")[0].text
+				try: 
+					# metadata.summary = nfoXML.xpath("plot")[0].text
+					metadata.summary = nfoXML.xpath("title")[0].text
 				except:
 					metadata.summary = ""
 					pass
