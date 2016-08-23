@@ -1,3 +1,5 @@
+Modified version of XBMCnfoTVImporter that works with Emby nfo files.
+
 XBMCnfoTVImporter.bundle-for-Plex
 =================================
 The agent is part of the Unsupported Appstore plugin. Installing it, will make
